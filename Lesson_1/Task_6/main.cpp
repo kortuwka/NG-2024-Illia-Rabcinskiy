@@ -2,29 +2,29 @@
 using namespace std;
 int main(){
     cout << "The size of the tree: ";
-    int g;
-cin >> g;
+    int sizeTree;
+cin >> sizeTree;
 int n = g;
 int h = 1;
 int p,k,s;
-s = g;
-p = g;
-k = g;
-g = h;
+s = sizeTree;
+p = sizeTree;
+k = sizeTree;
+sizeTree = h;
 while(n > 0){
-    while(g > 0){
+    while(sizeTree > 0){
         while(p > 0){
             cout << " ";
             p--;
         }
         cout << "*";
-        g--;
+        sizeTree--;
     }
     k--;
     p = k;
     cout << endl;
     h = h + 2;
-    g = h;
+    sizeTree = h;
     n = n - 1;
 }
 while(s > 0){
