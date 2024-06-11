@@ -3,35 +3,27 @@ using namespace std;
 int main(){
     cout << "The size of the tree: ";
     int sizeTree;
-cin >> sizeTree;
-int n = g;
-int h = 1;
-int p,k,s;
-s = sizeTree;
-p = sizeTree;
-k = sizeTree;
-sizeTree = h;
-while(n > 0){
-    while(sizeTree > 0){
-        while(p > 0){
+    cin >> sizeTree;
+    int interval = sizeTree;
+    int star = 1;
+    for (int n = sizeTree; n > 0; n--)
+    {   for (int i = interval; i > 0; i--)
+        {
             cout << " ";
-            p--;
         }
-        cout << "*";
-        sizeTree--;
+        for (int i = star; i > 0; i--)
+        {
+            cout << "*";
+        }
+        interval--;
+        cout << endl;
+        star = star + 2;
     }
-    k--;
-    p = k;
-    cout << endl;
-    h = h + 2;
-    sizeTree = h;
-    n = n - 1;
-}
-while(s > 0){
-    cout << " ";
-    s--;
-}
-cout << "*";
-return 0;
+    for (int i = sizeTree; i > 0; i--)
+    {
+        cout << " ";
+    }
+    cout << "*";
+    return 0;
 
 }

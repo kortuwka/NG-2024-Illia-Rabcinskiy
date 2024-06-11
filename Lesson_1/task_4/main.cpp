@@ -1,55 +1,53 @@
 #include <iostream>
-#include <Windows.h>
 #include <cmath>
 using namespace std;
 int main (){
-    setlocale(LC_ALL, "Ukrainian");
-    cout << "‗ךשמ + עמ םאןטרט 0, ÿךשמ - עמ 1, ÿךשמ * עמ 2, ÿךשמ / עמ 3, ÿךשמ ךגאהנאע עמ 4, ÿךשמ ךמנוםü עמ 5:" << endl;
+    cout << "If + then write 0, if - then 1, if * then 2, if / then 3, if the square then 4, if the root then 5:" << endl;
     int znak;
     cin >> znak;
-    int b;
-    int c;
+    int first_number;
+    int second_number;
     if (znak == 0){
-            cout << endl;
-        cin >> b;
-    cout << endl;
-    cin >> c;
-    cout << b + c;
+        cout << endl;
+        cin >> first_number;
+        cout << endl;
+        cin >> second_number;
+        cout << first_number + second_number;
     }
     if (znak == 1){
-            cout << endl;
-        cin >> b;
-    cout << endl;
-    cin >> c;
-    cout << b - c;
+        cout << endl;
+        cin >> first_number;
+        cout << endl;
+        cin >> second_number;
+        cout << first_number - second_number;
     }
     if (znak == 2){
-            cout << endl;
-        cin >> b;
-    cout << endl;
-    cin >> c;
-    cout << b * c;
+        cout << endl;
+        cin >> first_number;
+        cout << endl;
+        cin >> second_number;
+        cout << first_number * second_number;
     }
     if (znak == 3){
-            cout << endl;
-        cin >> b;
-    cout << endl;
-    cin >> c;
-    cout << b / c;
+        cout << endl;
+        cin >> first_number;
+        cout << endl;
+        cin >> second_number;
+        cout << first_number / second_number;
     }
     if (znak == 4){
-            cout << endl;
-        cin >> b;
-    cout << endl;
-    cout << b * b;
+        cout << endl;
+        cin >> first_number;
+        cout << endl;
+        cout << first_number * first_number;
     }
     if (znak == 5){
-            cin >> b;
-            cout << endl;
-            while (b < 0){
-                cin >> b;
-            }
-            cout << sqrtl(b) << endl;
+        cin >> first_number;
+        cout << endl;
+        while (first_number < 0){
+            cin >> first_number;
+        }
+        cout << sqrtl(first_number) << endl;
 
     }
     return 0;

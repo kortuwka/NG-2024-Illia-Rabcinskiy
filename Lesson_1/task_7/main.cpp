@@ -1,34 +1,32 @@
 #include <iostream>
 #include <cmath>
-#include <Windows.h>
 using namespace std;
 
 int main(){
-    setlocale(LC_ALL, "Ukrainian");
     int x;
     int x0;
     int y;
     int y0;
-    cout << "Центр кола:";
+    cout << "Circle center:";
     cout << endl;
     cin >> x0;
     cin >> y0;
-    cout << "Координати Кості:";
+    cout << "Costi coordinates:";
     cout << endl;
     cin >> x;
     cin >> y;
     int N;
-    cout << "Радіус:";
+    cout << "Radius:";
     cout << endl;
     cin >> N;
     int a = x - x0;
     int b = y - y0;
     int c = sqrtl(a * a + b * b);
     if (c < N){
-        cout << "Відстань до центру кола:";
+        cout << "Distance to the center of the circle:";
         cout << c;
-     }else{
-        cout << "Кості нічого не загрожує";
+    }else{
+        cout << "There is no danger to the bone";
     }
     return 0;
 }
