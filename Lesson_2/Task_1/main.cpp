@@ -8,7 +8,7 @@ int main(){
     float schet_minus;
     float schet_plus;
     int schet_cin;
-    int a[10] = {0,0,0,0,0,0,0,0,0,0};
+    int mas[10] = {0,0,0,0,0,0,0,0,0,0};
     while (while_1 == true){
         cout << endl;
         cout << "If you want to deposit money, write 1, if you want to withdraw, write 2, if you want to view all accounts, then 3, if you close the program, then 4";
@@ -20,7 +20,7 @@ int main(){
         if (schet == 3){
             for (int i = 0; i < 10;i++){
                 cout << " ";
-                cout << a[i];
+                cout << mas[i];
             }
         }
         if (schet == 2){
@@ -30,16 +30,16 @@ int main(){
             cout << endl;
             cout << "On which one?";
             cin >> schet_cin;
-            if (a[schet_cin] < 0){
+            if (mas[schet_cin] < 0){
                 cout << endl;
                 cout << "Credit on this account";
             }else{
-            a[schet_cin] = a[schet_cin] - schet_minus;
+            mas[schet_cin] = mas[schet_cin] - schet_minus;
             }
             cout << endl;
-            for (int i = 0; i < 10;i++){
+            for (int index_1 = 0; index_1 < 10;index_1++){
                 cout << " ";
-                cout << a[i];
+                cout << mas[index_1];
             }
 
         }
@@ -50,11 +50,11 @@ int main(){
             cout << endl;
             cout << "On which one?";
             cin >> schet_cin;
-            a[schet_cin] = a[schet_cin] + schet_plus;
+            mas[schet_cin] = mas[schet_cin] + schet_plus;
             cout << endl;
-            for (int i = 0; i < 10;i++){
+            for (int index_2 = 0; index_2 < 10;i++){
                 cout << " ";
-                cout << a[i];
+                cout << mas[index_2];
             }
         }
     }

@@ -8,10 +8,10 @@ int main(){
     int max_index;
     int space;
     int for_while = 0;
-    for (int k = 0; k < 20;k++){
-        chisla[k] = 0;
+    for (int index_0 = 0; index_0 < 20;index_0++){
+        chisla[index_0] = 0;
     }
-    for (int t = 0;t <= 20;t++){
+    for (int index_1 = 0;index_1 <= 20;index_1++){
         cout << "Enter value: ";
         cin >> value;
         cout << endl;
@@ -23,20 +23,20 @@ int main(){
             chisla_1++;
         }
     }
-    for(int i = 0;i < 20;i++){
+    for(int index_2 = 0;index_2 < 20;index_2++){
         if(chisla[i] > max_index){
-            max_index = chisla[i];
+            max_index = chisla[index_2];
         }
     }
-    for (int j = 0;j <= 20;j++){
-        space = (max_index - chisla[j])/2;
+    for (int index_3 = 0;index_3 <= 20;index_3++){
+        space = (max_index - chisla[index_3])/2;
         while (for_while < space){
             cout << " ";
             space = space - 1;
         }
-        while (for_while < chisla[j]){
+        while (for_while < chisla[index_3]){
             cout << "*";
-            chisla[j] = chisla[j] - 1;
+            chisla[index_3] = chisla[index_3] - 1;
         }
         cout << endl;
     }
