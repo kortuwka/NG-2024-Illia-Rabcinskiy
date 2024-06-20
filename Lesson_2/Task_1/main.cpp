@@ -14,16 +14,22 @@ int main(){
         cout << "If you want to deposit money, write 1, if you want to withdraw, write 2, if you want to view all accounts, then 3, if you close the program, then 4";
         cout << endl;
         cin >> schet;
-        if (schet == 4){
-            while_1 = false;
-        }
-        if (schet == 3){
-            for (int i = 0; i < 10;i++){
+        switch (schet){
+        case 1:
+            cout << endl;
+            cout << "How many?";
+            cin >> schet_plus;
+            cout << endl;
+            cout << "On which one?";
+            cin >> schet_cin;
+            mas[schet_cin] = mas[schet_cin] + schet_plus;
+            cout << endl;
+            for (int row = 0; row < 10;row++){
                 cout << " ";
-                cout << mas[i];
+                cout << mas[row];
             }
-        }
-        if (schet == 2){
+            break;
+        case 2:
             cout << endl;
             cout << "How many?";
             cin >> schet_minus;
@@ -37,26 +43,22 @@ int main(){
             mas[schet_cin] = mas[schet_cin] - schet_minus;
             }
             cout << endl;
-            for (int index_1 = 0; index_1 < 10;index_1++){
+            for (int row = 0; row < 10;row++){
                 cout << " ";
-                cout << mas[index_1];
+                cout << mas[row];
             }
-
-        }
-        if (schet == 1) {
-            cout << endl;
-            cout << "How many?";
-            cin >> schet_plus;
-            cout << endl;
-            cout << "On which one?";
-            cin >> schet_cin;
-            mas[schet_cin] = mas[schet_cin] + schet_plus;
-            cout << endl;
-            for (int index_2 = 0; index_2 < 10;i++){
+            break;
+        case 3:
+            for (int row = 0; row < 10;row++){
                 cout << " ";
-                cout << mas[index_2];
+                cout << mas[row];
             }
+            break;
+        case 4:
+            while_1 = false;
+            break;
         }
     }
+
     return 0;
 }

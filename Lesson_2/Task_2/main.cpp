@@ -11,32 +11,32 @@ int main(){
     for (int index_0 = 0; index_0 < 20;index_0++){
         chisla[index_0] = 0;
     }
-    for (int index_1 = 0;index_1 <= 20;index_1++){
+    for (int row = 0;row <= 20;row++){
         cout << "Enter value: ";
         cin >> value;
         cout << endl;
 
         if (value == 0){
-            t = 30;
+            row = 30;
         }else{
             chisla[chisla_1] = value;
             chisla_1++;
         }
     }
-    for(int index_2 = 0;index_2 < 20;index_2++){
-        if(chisla[i] > max_index){
-            max_index = chisla[index_2];
+    for(int row = 0;row < 20;row++){
+        if(chisla[row] > max_index){
+            max_index = chisla[row];
         }
     }
-    for (int index_3 = 0;index_3 <= 20;index_3++){
-        space = (max_index - chisla[index_3])/2;
+    for (int row = 0;row <= 20;row++){
+        space = (max_index - chisla[row])/2;
         while (for_while < space){
             cout << " ";
             space = space - 1;
         }
-        while (for_while < chisla[index_3]){
+        while (for_while < chisla[row]){
             cout << "*";
-            chisla[index_3] = chisla[index_3] - 1;
+            chisla[row] = chisla[row] - 1;
         }
         cout << endl;
     }
