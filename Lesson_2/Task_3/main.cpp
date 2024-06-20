@@ -3,6 +3,7 @@ using namespace std;
 
 int main(){
     int rows[5];
+    int
     int max_index = 0;
     for (int row = 0; row < 5; row++){
         cout << "Enter amount in row: ";
