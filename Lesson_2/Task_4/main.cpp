@@ -3,23 +3,17 @@
 using namespace std;
 
 int main(){
-    char str[]="Hello word hello hjhjhj bjbjhjh";
-    //cin >> str;
-    int len = 0;
-    for(int index_0=0; str[index_0]!='\0';index_0++)
+    char Line;
+    int space = 0;
+    cin.get(Line);
+    while(Line != '\n')
     {
-        len++;
-    }
-    cout << len;
-    int kil = 0;
-    for (int index_1 = 0; index_1 < len;index_1++){
-        if (str[index_1] == ' '){
-            kil++;
-        }
+        if(Line == ' ') {space++;}
+        cin.get(Line);
     }
     cout << endl;
-    kil++;
+    space++;
     cout << "word count = ";
-    cout << kil;
+    cout << space;
     return 0;
 }
