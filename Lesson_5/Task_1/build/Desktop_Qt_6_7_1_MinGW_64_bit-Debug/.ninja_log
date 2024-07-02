@@ -1,0 +1,27 @@
+# ninja log v5
+10	5918	7415783966943322	Task_1_autogen/timestamp	463b7c35cabd164d
+10	5918	7415783966943322	Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+10	5918	7415783966943322	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/timestamp	463b7c35cabd164d
+10	5918	7415783966943322	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+5931	25071	7415784162978848	CMakeFiles/Task_1.dir/Task_1_autogen/mocs_compilation.cpp.obj	9dc732c4a1bf220a
+5922	25266	7415784164921780	CMakeFiles/Task_1.dir/main.cpp.obj	523004c5e114c87e
+5940	26386	7415784176100613	CMakeFiles/Task_1.dir/secondwindow.cpp.obj	9df19713da6f88eb
+85	1419	7416364695973181	Task_1_autogen/timestamp	463b7c35cabd164d
+85	1419	7416364695973181	Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+85	1419	7416364695973181	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/timestamp	463b7c35cabd164d
+85	1419	7416364695973181	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+1600	22294	7416364904701199	CMakeFiles/Task_1.dir/secondwindow.cpp.obj	9df19713da6f88eb
+50	1211	7416365361714614	Task_1_autogen/timestamp	463b7c35cabd164d
+50	1211	7416365361714614	Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+50	1211	7416365361714614	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/timestamp	463b7c35cabd164d
+50	1211	7416365361714614	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+1383	21063	7416365560220468	CMakeFiles/Task_1.dir/mainwindow.cpp.obj	58f1157825523249
+1374	21670	7416365566283458	CMakeFiles/Task_1.dir/secondwindow.cpp.obj	9df19713da6f88eb
+21672	23373	7416365583095708	Task_1.exe	80d658d12649f7ed
+49	1176	7416366777904867	Task_1_autogen/timestamp	463b7c35cabd164d
+49	1176	7416366777904867	Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+49	1176	7416366777904867	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/timestamp	463b7c35cabd164d
+49	1176	7416366777904867	D:/Lesson_5/Task_1/build/Desktop_Qt_6_7_1_MinGW_64_bit-Debug/Task_1_autogen/mocs_compilation.cpp	463b7c35cabd164d
+1349	20891	7416366975034126	CMakeFiles/Task_1.dir/mainwindow.cpp.obj	58f1157825523249
+1358	21560	7416366981721980	CMakeFiles/Task_1.dir/secondwindow.cpp.obj	9df19713da6f88eb
+21562	23060	7416366996542506	Task_1.exe	80d658d12649f7ed
