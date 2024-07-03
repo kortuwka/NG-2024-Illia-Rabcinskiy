@@ -29,22 +29,8 @@ void MainWindow::on_pushButton_clicked()
         ui->label->setText("");
         line.replace(line.find("fuck"), 4, "----");
     }
-    int short val_0 = line.find("fucking");
+    int short val_0 = line.find("dick");
     if(val_0 == -1){
-        ui->label->setText("not found");
-    }else{
-        ui->label->setText("");
-        line.replace(line.find("fucking"), 7, "-------");
-    }
-    int short val_1 = line.find("fucked");
-    if(val_1 == -1){
-        ui->label->setText("not found");
-    }else{
-        ui->label->setText("");
-        line.replace(line.find("fucked"), 6, "------");
-    }
-    int short val_2 = line.find("dick");
-    if(val_2 == -1){
         ui->label->setText("not found");
     }else{
         ui->label->setText("");
