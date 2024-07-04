@@ -1,13 +1,11 @@
 #include <iostream>
-#include <vector>
-#include <cctype>
+
 
 using namespace std;
 
 int main(){
     char Line;
     int chisla = 0;
-    //int atoi(Line);
     int space = 0;
     cin.get(Line);
     while(Line != '\n')
