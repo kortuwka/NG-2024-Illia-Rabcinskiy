@@ -22,38 +22,38 @@ int main(){
             cout << "How many?";
         }
         switch (schet){
-        case 1:
-            cin >> schet_plus;
-            bankAccounts[schet_cin] = bankAccounts[schet_cin] + schet_plus;
-            cout << endl;
-            for (int row = 0; row < 10;row++){
-                cout << " ";
-                cout << bankAccounts[row];
-            }
-            break;
-        case 2:
-            cin >> schet_minus;
-            if (bankAccounts[schet_cin] < 0){
+            case 1:
+                cin >> schet_plus;
+                bankAccounts[schet_cin] = bankAccounts[schet_cin] + schet_plus;
                 cout << endl;
-                cout << "Credit on this account";
-            }else{
-            bankAccounts[schet_cin] = bankAccounts[schet_cin] - schet_minus;
-            }
-            cout << endl;
-            for (int row = 0; row < 10;row++){
-                cout << " ";
-                cout << bankAccounts[row];
-            }
-            break;
-        case 3:
-            for (int row = 0; row < 10;row++){
-                cout << " ";
-                cout << bankAccounts[row];
-            }
-            break;
-        case 4:
-            isRunning = false;
-            break;
+                for (int row = 0; row < 10;row++){
+                    cout << " ";
+                    cout << bankAccounts[row];
+                }
+                break;
+            case 2:
+                cin >> schet_minus;
+                if (bankAccounts[schet_cin] < 0){
+                    cout << endl;
+                    cout << "Credit on this account";
+                }else{
+                    bankAccounts[schet_cin] = bankAccounts[schet_cin] - schet_minus;
+                }
+                cout << endl;
+                for (int row = 0; row < 10;row++){
+                    cout << " ";
+                    cout << bankAccounts[row];
+                }
+                break;
+            case 3:
+                for (int row = 0; row < 10;row++){
+                    cout << " ";
+                    cout << bankAccounts[row];
+                }
+                break;
+            case 4:
+                isRunning = false;
+                break;
         }
     }
 
