@@ -5,35 +5,32 @@ using namespace std;
 int main(){
     int value;
     int max_chisla[20];
-    int max_index=-1;
+    int max_chislo=-1;
     int space;
-    int for_while = 0;
-    for (int currentValueIndex = 0; currentValueIndex < 20; currentValueIndex++){
-        max_chisla[currentValueIndex] = 0;
-    }
+
     for (int currentValueIndex = 0;currentValueIndex < 20 ;currentValueIndex++){
         cout << "Enter value: ";
         cin >> max_chisla[currentValueIndex];
         cout << endl;
 
         if (max_chisla[currentValueIndex] == 0){
-            currentValueIndex = currentValueIndex + 30;
+                break;
         }
     }
     for(int currentValueIndex = 0;max_chisla[currentValueIndex] != 0;currentValueIndex++){
-        if(max_chisla[currentValueIndex] > max_index){
-            max_index = max_chisla[currentValueIndex];
+        if(max_chisla[currentValueIndex] > max_chislo){
+            max_chislo = max_chisla[currentValueIndex];
         }
     }
     for (int currentValueIndex = 0;max_chisla[currentValueIndex] != 0;currentValueIndex++){
-        space = (max_index - max_chisla[currentValueIndex])/2;
-        while (for_while < space){
+        space = (max_chislo - max_chisla[currentValueIndex])/2;
+        while (space > 0){
             cout << " ";
-            space = space - 1;
+            space --;
         }
-        while (for_while < max_chisla[currentValueIndex]){
+        while (max_chisla[currentValueIndex] > 0){
             cout << "*";
-            max_chisla[currentValueIndex] = max_chisla[currentValueIndex] - 1;
+            max_chisla[currentValueIndex]--;
         }
         cout << endl;
     }
