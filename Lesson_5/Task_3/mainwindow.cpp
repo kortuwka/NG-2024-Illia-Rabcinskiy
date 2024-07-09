@@ -5,7 +5,7 @@ double firstnum;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui(new Ui::Calculator)
 {
     ui->setupUi(this);
 
@@ -37,6 +37,7 @@ MainWindow::~MainWindow()
     delete ui;
 
 }
+
 
 void MainWindow::numbers(){
     QPushButton *button = (QPushButton *)sender();
