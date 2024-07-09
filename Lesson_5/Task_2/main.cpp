@@ -1,159 +1,97 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
 using namespace std;
 
-class information{
+class Information {
 public:
-    string book_article_abstract;
-    string Name;
-    string Author;
-    int Adress;
-    string Date_create;
-    void cout_all(){
-        cout << "book_article_abstract: " << book_article_abstract;
-        cout << endl;
-        cout << "Name: " << Name;
-        cout << endl;
-        cout << "Author: " << Author;
-        cout << endl;
-        cout << "Adress: " << Adress;
-        cout << endl;
-        cout << "Date_create: " << Date_create;
-        cout << endl;
-    }
+    string type;
+    string name;
+    string author;
+    int address;
+    string dateCreate;
 
+    void display() const {
+        cout << "Type: " << type << endl;
+        cout << "Name: " << name << endl;
+        cout << "Author: " << author << endl;
+        cout << "Address: " << address << endl;
+        cout << "Date of creation: " << dateCreate << endl;
+    }
 };
 
+class Library {
+private:
+    vector<Information> records;
+    int nextAddress = 1;
 
-int main(){
+public:
+    void addRecord(const string& type, const string& name, const string& author, const string& dateCreate) {
+        if (records.size() >= 5) {
+            cout << "Maximum number of records reached!" << endl;
+            return;
+        }
+        Information record = {type, name, author, nextAddress++, dateCreate};
+        records.push_back(record);
+        cout << "Record added successfully!" << endl;
+    }
 
-    information book_acticle_abstract_1;
-    information book_acticle_abstract_2;
-    information book_acticle_abstract_3;
-    information book_acticle_abstract_4;
-    information book_acticle_abstract_5;
-    int Pointer;
-    int many = 0;
-    int ID;
-    bool Library_work = true;
-    while(Library_work == true){
-        cout << "Write 0 if you want to exit the application, 1 if you want to create a book, abstract, article (max 5) 2 if you want to find something behind the address";
-        cin >> Pointer;
-        cout << endl;
-        if(Pointer == 0){
-            Library_work = false;
-        }else if(Pointer == 1){
-            if(many == 0){
-                many++;
-                cout << "Write a book, abstract, article: ";
-                cin >> book_acticle_abstract_1.book_article_abstract;
-                cout << endl;
-                cout << "Name: ";
-                cin >> book_acticle_abstract_1.Name;
-                cout << endl;
-                cout << "Author: ";
-                cin >> book_acticle_abstract_1.Author;
-                cout << endl;
-                cout << "Address from 1 to 10000 ATTENTION the address of the previous book should not coincide with this one: ";
-                cin >> book_acticle_abstract_1.Adress;
-                cout << endl;
-                cout << "Date create: ";
-                cin >> book_acticle_abstract_1.Date_create;
-                cout << endl;
-
-            }else if(many == 1){
-                many++;
-                cout << "Write a book, abstract, article: ";
-                cin >> book_acticle_abstract_2.book_article_abstract;
-                cout << endl;
-                cout << "Name: ";
-                cin >> book_acticle_abstract_2.Name;
-                cout << endl;
-                cout << "Author: ";
-                cin >> book_acticle_abstract_2.Author;
-                cout << endl;
-                cout << "Address from 1 to 10000 ATTENTION the address of the previous book should not coincide with this one: ";
-                cin >> book_acticle_abstract_2.Adress;
-                cout << endl;
-                cout << "Date create: ";
-                cin >> book_acticle_abstract_2.Date_create;
-                cout << endl;
-
-            }else if(many == 2){
-                many++;
-                cout << "Write a book, abstract, article: ";
-                cin >> book_acticle_abstract_3.book_article_abstract;
-                cout << endl;
-                cout << "Name: ";
-                cin >> book_acticle_abstract_3.Name;
-                cout << endl;
-                cout << "Author: ";
-                cin >> book_acticle_abstract_3.Author;
-                cout << endl;
-                cout << "Address from 1 to 10000 ATTENTION the address of the previous book should not coincide with this one: ";
-                cin >> book_acticle_abstract_3.Adress;
-                cout << endl;
-                cout << "Date create: ";
-                cin >> book_acticle_abstract_3.Date_create;
-                cout << endl;
-
-            }else if(many == 3){
-                many++;
-                cout << "Write a book, abstract, article: ";
-                cin >> book_acticle_abstract_4.book_article_abstract;
-                cout << endl;
-                cout << "Name: ";
-                cin >> book_acticle_abstract_4.Name;
-                cout << endl;
-                cout << "Author: ";
-                cin >> book_acticle_abstract_4.Author;
-                cout << endl;
-                cout << "Address from 1 to 10000 ATTENTION the address of the previous book should not coincide with this one: ";
-                cin >> book_acticle_abstract_4.Adress;
-                cout << endl;
-                cout << "Date create: ";
-                cin >> book_acticle_abstract_4.Date_create;
-                cout << endl;
-
-            }else if(many == 4){
-                many++;
-                cout << "Write a book, abstract, article: ";
-                cin >> book_acticle_abstract_5.book_article_abstract;
-                cout << endl;
-                cout << "Name: ";
-                cin >> book_acticle_abstract_5.Name;
-                cout << endl;
-                cout << "Author: ";
-                cin >> book_acticle_abstract_5.Author;
-                cout << endl;
-                cout << "Address from 1 to 10000 ATTENTION the address of the previous book should not coincide with this one: ";
-                cin >> book_acticle_abstract_5.Adress;
-                cout << endl;
-                cout << "Date create: ";
-                cin >> book_acticle_abstract_5.Date_create;
-                cout << endl;
-
-            }
-
-        }else if(Pointer == 2){
-            cout << "Write ID books: ";
-            cin >> ID;
-            cout << endl;
-            if (ID == book_acticle_abstract_1.Adress){
-                book_acticle_abstract_1.cout_all();
-            }else if (ID == book_acticle_abstract_2.Adress){
-                book_acticle_abstract_2.cout_all();
-            }else if (ID == book_acticle_abstract_3.Adress){
-                book_acticle_abstract_3.cout_all();
-            }else if (ID == book_acticle_abstract_4.Adress){
-                book_acticle_abstract_4.cout_all();
-            }else if (ID == book_acticle_abstract_5.Adress){
-                book_acticle_abstract_5.cout_all();
-            }else {
-                cout << "Nothing found" << endl;
+    void findRecordByAddress(int address) const {
+        for (const auto& record : records) {
+            if (record.address == address) {
+                record.display();
+                return;
             }
         }
+        cout << "No record found with address: " << address << endl;
+    }
+
+    void displayAllRecords() const {
+        if (records.empty()) {
+            cout << "No records available." << endl;
+            return;
+        }
+        for (const auto& record : records) {
+            record.display();
+            cout << "---------------------" << endl;
+        }
+    }
+};
+
+int main() {
+    Library library;
+    int option;
+
+    while (true) {
+        cout << "Enter 0 to exit, 1 to add a record, 2 to find a record by address, 3 to display all records: ";
+        cin >> option;
+        cout << endl;
+
+        if (option == 0) {
+            break;
+        } else if (option == 1) {
+            string type, name, author, dateCreate;
+            cout << "Enter type (book, article, abstract): ";
+            cin >> type;
+            cout << "Enter name: ";
+            cin >> name;
+            cout << "Enter author: ";
+            cin >> author;
+            cout << "Enter date of creation: ";
+            cin >> dateCreate;
+            library.addRecord(type, name, author, dateCreate);
+        } else if (option == 2) {
+            int address;
+            cout << "Enter address: ";
+            cin >> address;
+            library.findRecordByAddress(address);
+        } else if (option == 3) {
+            library.displayAllRecords();
+        } else {
+            cout << "Please try again" << endl;
+        }
+        cout << endl;
     }
 
     return 0;
