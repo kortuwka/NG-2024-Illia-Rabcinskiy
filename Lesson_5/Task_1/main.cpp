@@ -18,24 +18,12 @@ public:
         return Manufacturer;
     }
 
-    void setManufacturer(const string& Manufacturer) {
-        this->Manufacturer = Manufacturer;
-    }
-
     double getPrice() const {
         return Price;
     }
 
-    void setPrice(double Price) {
-        this->Price = Price;
-    }
-
     string getType() const {
         return Type;
-    }
-
-    void setType(const string& Type) {
-        this->Type = Type;
     }
 
     virtual void display() const {
@@ -53,31 +41,7 @@ public:
     Crossover(string Manufacturer, double Price, string Type, string Model, short seats, string color)
         : Car(Manufacturer, Price, Type), Model(Model), seats(seats), color(color) {}
 
-    string getModel() const {
-        return Model;
-    }
-
-    void setModel(const string& Model) {
-        this->Model = Model;
-    }
-
-    short getSeats() const {
-        return seats;
-    }
-
-    void setSeats(short seats) {
-        this->seats = seats;
-    }
-
-    string getColor() const {
-        return color;
-    }
-
-    void setColor(const string& color) {
-        this->color = color;
-    }
-
-    void info() {
+    void display() const override {
         Car::display();
         cout << ", Model: " << Model << ", Seats: " << seats << ", Color: " << color << endl;
     }
@@ -93,35 +57,19 @@ public:
     Pickup(string Manufacturer, double Price, string Type, string Model, short seats, string color)
         : Car(Manufacturer, Price, Type), Model(Model), seats(seats), color(color) {}
 
-    string getModel() const {
-        return Model;
-    }
-
-    void setModel(const string& Model) {
-        this->Model = Model;
-    }
-
-    short getSeats() const {
-        return seats;
-    }
-
-    void setSeats(short seats) {
-        this->seats = seats;
-    }
-
-    string getColor() const {
-        return color;
-    }
-
-    void setColor(const string& color) {
-        this->color = color;
-    }
-
-    void info(){
+    void display() const override {
         Car::display();
         cout << ", Model: " << Model << ", Seats: " << seats << ", Color: " << color << endl;
     }
 };
+
+void displayAvailableCars(const vector<Car*>& cars) {
+    cout << "Available cars:" << endl;
+    for (const auto& car : cars) {
+        car->display();
+        cout << endl;
+    }
+}
 
 void filterAndDisplayCars(const vector<Car*>& cars, const string& Type, const string& Manufacturer, double maxPrice) {
     for (const auto& car : cars) {
@@ -129,6 +77,7 @@ void filterAndDisplayCars(const vector<Car*>& cars, const string& Type, const st
             (Manufacturer.empty() || car->getManufacturer() == Manufacturer) &&
             (maxPrice == 0.0 || car->getPrice() <= maxPrice)) {
             car->display();
+            cout << endl;
         }
     }
 }
@@ -140,6 +89,8 @@ int main() {
     cars.push_back(new Pickup("Ford", 30000, "Pickup", "F-150", 5, "Blue"));
     cars.push_back(new Crossover("BMW", 40000, "Crossover", "X5", 5, "Black"));
     cars.push_back(new Pickup("Chevrolet", 35000, "Pickup", "Silverado", 5, "White"));
+
+    displayAvailableCars(cars);
 
     string typeFilter;
     string manufacturerFilter;
@@ -158,6 +109,7 @@ int main() {
         maxPriceFilter = stod(maxPriceInput);
     }
 
+    cout << "\nFiltered cars:" << endl;
     filterAndDisplayCars(cars, typeFilter, manufacturerFilter, maxPriceFilter);
 
     for (auto car : cars) {
@@ -166,3 +118,4 @@ int main() {
 
     return 0;
 }
+
