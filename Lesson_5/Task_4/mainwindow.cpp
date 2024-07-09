@@ -24,16 +24,12 @@ void MainWindow::on_pushButton_clicked()
     string line = line_0.toLocal8Bit().constData();
     int short val = line.find("fuck");
     if(val == -1){
-        ui->label->setText("not found");
     }else{
-        ui->label->setText("");
         line.replace(line.find("fuck"), 4, "----");
     }
-    int short val_0 = line.find("dick");
-    if(val_0 == -1){
-        ui->label->setText("not found");
+    int short val_2 = line.find("dick");
+    if(val_2 == -1){
     }else{
-        ui->label->setText("");
         line.replace(line.find("dick"), 4, "----");
     }
     QString line_1 = QString::fromStdString(line);
