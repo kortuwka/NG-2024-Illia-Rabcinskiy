@@ -24,6 +24,11 @@ int main(){
         switch (schet){
             case 1:
                 cin >> schet_plus;
+                while(schet_plus < 1){
+                    cout << endl;
+                    cout << "Please enter a number greater than zero";
+                    cin >> schet_plus;
+                }
                 bankAccounts[schet_cin] = bankAccounts[schet_cin] + schet_plus;
                 cout << endl;
                 for (int row = 0; row < 10;row++){
@@ -33,6 +38,11 @@ int main(){
                 break;
             case 2:
                 cin >> schet_minus;
+                while(schet_minus < 1){
+                    cout << endl;
+                    cout << "Please enter a number greater than zero";
+                    cin >> schet_minus;
+                }
                 if (bankAccounts[schet_cin] < 0){
                     cout << endl;
                     cout << "Credit on this account";
