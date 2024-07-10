@@ -12,7 +12,7 @@ public:
     int address;
     string dateCreate;
 
-    void display() const {
+    void display() {
         cout << "Type: " << type << endl;
         cout << "Name: " << name << endl;
         cout << "Author: " << author << endl;
@@ -27,18 +27,19 @@ private:
     int nextAddress = 1;
 
 public:
-    void addRecord(const string& type, const string& name, const string& author, const string& dateCreate) {
+    Information addRecord(string type, string name, string author, string dateCreate) {
         if (records.size() >= 5) {
             cout << "Maximum number of records reached!" << endl;
-            return;
+            return {};
         }
         Information record = {type, name, author, nextAddress++, dateCreate};
         records.push_back(record);
         cout << "Record added successfully!" << endl;
+        return record;
     }
 
-    void findRecordByAddress(int address) const {
-        for (const auto& record : records) {
+    void findRecordByAddress(int address) {
+        for (auto record : records) {
             if (record.address == address) {
                 record.display();
                 return;
@@ -47,12 +48,12 @@ public:
         cout << "No record found with address: " << address << endl;
     }
 
-    void displayAllRecords() const {
+    void displayAllRecords() {
         if (records.empty()) {
             cout << "No records available." << endl;
             return;
         }
-        for (const auto& record : records) {
+        for (auto record : records) {
             record.display();
             cout << "---------------------" << endl;
         }
@@ -80,7 +81,12 @@ int main() {
             cin >> author;
             cout << "Enter date of creation: ";
             cin >> dateCreate;
-            library.addRecord(type, name, author, dateCreate);
+
+            Information newRecord = library.addRecord(type, name, author, dateCreate);
+            if (!newRecord.type.empty()) {
+                cout << "New record details:" << endl;
+                newRecord.display();
+            }
         } else if (option == 2) {
             int address;
             cout << "Enter address: ";
@@ -89,7 +95,7 @@ int main() {
         } else if (option == 3) {
             library.displayAllRecords();
         } else {
-            cout << "Please try again" << endl;
+            cout << "Please try again." << endl;
         }
         cout << endl;
     }
