@@ -11,6 +11,11 @@ int main(){
     for (int currentValueIndex = 0;currentValueIndex < 20 ;currentValueIndex++){
         cout << "Enter value: ";
         cin >> max_chisla[currentValueIndex];
+        while (max_chisla[currentValueIndex] < 0){
+            cout << endl;
+            cout << "Please enter a number greate than zero";
+            cin >> max_chisla[currentValueIndex];
+        }
         cout << endl;
 
         if (max_chisla[currentValueIndex] == 0){
