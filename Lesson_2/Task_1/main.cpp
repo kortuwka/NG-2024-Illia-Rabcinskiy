@@ -18,6 +18,7 @@ int main(){
             cout << endl;
             cout << "On which one?";
             cin >> schet_cin;
+            schet_cin--;
             cout << endl;
             cout << "How many?";
         }
