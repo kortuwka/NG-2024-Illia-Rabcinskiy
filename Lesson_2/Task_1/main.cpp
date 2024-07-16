@@ -10,7 +10,19 @@ int cout_accounts(){
         cout << bankAccounts[row];
     }
 }
-
+int max_and_min_schet(){
+    int max_schet = 0;
+    int min_schet = bankAccounts[0];
+    for (int row = 0; row < 10; row++){
+        if(bankAccounts[row] > max_schet){
+            max_schet = bankAccounts[row];
+        }else if (bankAccounts[row] < min_schet){
+            min_schet = bankAccounts[row];
+        }
+    }
+    cout << " maximum: " << max_schet;
+    cout << " minimum: " << min_schet;
+}
 int main(){
     bool isRunning = true;
     int schet;
@@ -19,7 +31,7 @@ int main(){
     int schet_cin;
     while (isRunning == true){
         cout << endl;
-        cout << "If you want to deposit money, write 1, if you want to withdraw, write 2, if you want to view all accounts, then 3, if you close the program, then 4";
+        cout << "If you want to deposit money, write 1, if you want to withdraw, write 2, if you want to view all accounts, then 3, if you close the program, then 4, if you want to display the maximum and minimum amount, write 5";
         cout << endl;
         cin >> schet;
         if (schet == 1 || schet == 2){
@@ -63,6 +75,9 @@ int main(){
                 break;
             case 4:
                 isRunning = false;
+                break;
+            case 5:
+                max_and_min_schet();
                 break;
         }
     }
