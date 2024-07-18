@@ -18,14 +18,19 @@ int max_and_min_schet(){
     for (int row = 0; row < 10; row++){
         if(bankAccounts[row] > max_schet){
             max_schet = bankAccounts[row];
+            row++;
             in_max_schet = row;
-        }else if (bankAccounts[row] < min_schet){
+            row--;
+        }
+        if (bankAccounts[row] < min_schet){
             min_schet = bankAccounts[row];
+            row++;
             in_min_schet = row;
+            row--;
         }
     }
-    cout << " maximum: " << max_schet << " " << in_max_schet;
-    cout << " minimum: " << min_schet << " " << in_min_schet;
+    cout << " maximum: " << max_schet << " row: " << in_max_schet;
+    cout << " minimum: " << min_schet << " row: " << in_min_schet;
 }
 int main(){
     bool isRunning = true;
