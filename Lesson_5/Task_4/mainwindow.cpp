@@ -1,10 +1,5 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
-#include <cstdlib>
-#include <string.h>
-#include <iostream>
-#include <string>
-using namespace std;
+#include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,23 +12,44 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-int space = 0;
-void MainWindow::on_pushButton_clicked()
-{
-    QString line_0 = ui->lineEdit->text();
-    string line = line_0.toLocal8Bit().constData();
-    int short val = line.find("fuck");
-    if(val == -1){
-    }else{
-        line.replace(line.find("fuck"), 4, "----");
-    }
-    int short val_2 = line.find("dick");
-    if(val_2 == -1){
-    }else{
-        line.replace(line.find("dick"), 4, "----");
-    }
-    QString line_1 = QString::fromStdString(line);
-    ui->lineEdit->setText(line_1);
+#include <QFile>
+#include <QTextStream>
+#include <QString>
+#include <QDebug>
 
+enum class Keyword {
+    Fuck,
+    Dick
+};
+
+void replaceKeyword(QString& line, const QString& keyword) {
+    int val = line.indexOf(keyword);
+    if (val != -1) {
+        line.replace(val, keyword.length(), "----");
+    }
 }
 
+int MainWindow::on_pushButton_clicked()
+{
+    QFile file("C:/Users/User/Documents/Task_4/keywords");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Failed to open keywords.txt";
+        return 1;
+    }
+
+    QTextStream in(&file);
+    QStringList keywords;
+    while (!in.atEnd()) {
+        QString keyword = in.readLine().trimmed();
+        keywords.append(keyword);
+    }
+
+    file.close();
+
+    QString line = ui->lineEdit->text();
+    for (const QString& keyword : keywords) {
+        replaceKeyword(line, keyword);
+    }
+
+    ui->lineEdit->setText(line);
+}
