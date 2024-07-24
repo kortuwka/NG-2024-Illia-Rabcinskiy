@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Calculator</class>
- <widget class="QMainWindow" name="Calculator">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>360</width>
-    <height>259</height>
+    <height>201</height>
    </rect>
-  </property>
-  <property name="font">
-   <font>
-    <pointsize>9</pointsize>
-   </font>
   </property>
   <property name="windowTitle">
    <string>Calculator</string>
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../../../Admin/Downloads/icon.png</normaloff>../../../../../../Admin/Downloads/icon.png</iconset>
+    <normaloff>Calculator.ico</normaloff>Calculator.ico</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_6">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
       <item>
-       <widget class="QLabel" name="Show_numbers">
+       <widget class="QLabel" name="label">
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="text">
@@ -62,7 +60,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_podil">
+         <widget class="QPushButton" name="pushButton_divide">
           <property name="text">
            <string>/</string>
           </property>
@@ -71,7 +69,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QPushButton" name="pushButton_7">
           <property name="text">
@@ -94,7 +92,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_pomno">
+         <widget class="QPushButton" name="pushButton_multiply">
           <property name="text">
            <string>*</string>
           </property>
@@ -103,7 +101,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
         <item>
          <widget class="QPushButton" name="pushButton_4">
           <property name="text">
@@ -126,16 +124,16 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_plus">
+         <widget class="QPushButton" name="pushButton_minus">
           <property name="text">
-           <string>+</string>
+           <string>-</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
          <widget class="QPushButton" name="pushButton_1">
           <property name="text">
@@ -158,16 +156,16 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_minus">
+         <widget class="QPushButton" name="pushButton_plus">
           <property name="text">
-           <string>-</string>
+           <string>+</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
         <item>
          <widget class="QPushButton" name="pushButton_clear">
           <property name="text">
@@ -183,7 +181,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_rov">
+         <widget class="QPushButton" name="pushButton_smooth">
           <property name="text">
            <string>=</string>
           </property>
@@ -195,17 +193,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>360</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

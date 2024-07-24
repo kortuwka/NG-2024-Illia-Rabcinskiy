@@ -1,137 +1,138 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include "ui_mainwindow.h"
 
-double firstnum;
+double numfirts;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::Calculator)
+    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    connect(ui->pushButton_0,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_1,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_2,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_3,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_4,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_5,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_6,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_7,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_8,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_9,SIGNAL(clicked()),this,SLOT(numbers()));
-    connect(ui->pushButton_plusminus,SIGNAL(clicked()),this,SLOT(actions()));
-    connect(ui->pushButton_procent,SIGNAL(clicked()),this,SLOT(actions()));
-    connect(ui->pushButton_podil,SIGNAL(clicked()),this,SLOT(sign()));
-    connect(ui->pushButton_minus,SIGNAL(clicked()),this,SLOT(sign()));
-    connect(ui->pushButton_plus,SIGNAL(clicked()),this,SLOT(sign()));
-    connect(ui->pushButton_pomno,SIGNAL(clicked()),this,SLOT(sign()));
+    connect(ui->pushButton_0, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_1, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_2, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_3, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_4, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_5, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_6, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_7, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_8, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_9, SIGNAL(clicked()), this, SLOT(digits_numbers()));
+    connect(ui->pushButton_plusminus, SIGNAL(clicked()), this, SLOT(operations()));
+    connect(ui->pushButton_procent, SIGNAL(clicked()), this, SLOT(operations()));
+    connect(ui->pushButton_divide, SIGNAL(clicked()), this, SLOT(math_operations()));
+    connect(ui->pushButton_minus, SIGNAL(clicked()), this, SLOT(math_operations()));
+    connect(ui->pushButton_plus, SIGNAL(clicked()), this, SLOT(math_operations()));
+    connect(ui->pushButton_multiply, SIGNAL(clicked()), this, SLOT(math_operations()));
 
-    ui->pushButton_podil->setCheckable(true);
+    ui->pushButton_divide->setCheckable(true);
     ui->pushButton_plus->setCheckable(true);
     ui->pushButton_minus->setCheckable(true);
-    ui->pushButton_pomno->setCheckable(true);
+    ui->pushButton_multiply->setCheckable(true);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-
 }
 
-
-void MainWindow::numbers(){
+void MainWindow::digits_numbers(){
     QPushButton *button = (QPushButton *)sender();
 
-    double numbers;
-    QString num;
-    numbers = QString (ui->Show_numbers->text() + button->text()).toDouble();
-    num = QString::number(numbers);
+    double allnumbers;
+    QString newlabel;
+    allnumbers = QString (ui->label->text() + button->text()).toDouble();
+    newlabel = QString::number(allnumbers, 'g', 20);
 
-
-    ui->Show_numbers->setText(num);
-}
-
-void MainWindow::actions(){
-    QPushButton *button = (QPushButton *)sender();
-    double numbers;
-    QString num;
-
-    if(button->text() == "+/-") {
-        numbers = QString (ui->Show_numbers->text()).toDouble();
-        numbers = numbers * -1;
-        num = QString::number(numbers, 'g', 15);
-
-        ui->Show_numbers->setText(num);
-    } else if(button->text() == "%") {
-        numbers = QString (ui->Show_numbers->text()).toDouble();
-        numbers = numbers * 0.01;
-        num = QString::number(numbers, 'g', 15);
-
-
-        ui->Show_numbers->setText(num);
-    }
+    ui->label->setText(newlabel);
 }
 
 void MainWindow::on_pushButton_dot_clicked()
 {
-    if(!(ui->Show_numbers->text().contains('.')))
-        ui->Show_numbers->setText(ui->Show_numbers->text() + ".");
+    if(!(ui->label->text().contains('.')))
+        ui->label->setText(ui->label->text() + ".");
+
 }
 
+void MainWindow::operations(){
+    QPushButton *button = (QPushButton *)sender();
+
+    double allnumbers;
+    QString newlabel;
+
+    if(button->text() == "+/-"){
+        allnumbers = (ui->label->text()).toDouble();
+        allnumbers = allnumbers * -1;
+        newlabel = QString::number(allnumbers, 'g', 20);
+
+        ui->label->setText(newlabel);
+    }else if(button->text() == "%"){
+        allnumbers = (ui->label->text()).toDouble();
+        allnumbers = allnumbers * 0.1;
+        newlabel = QString::number(allnumbers, 'g', 20);
+
+        ui->label->setText(newlabel);
+    }
+}
 
 void MainWindow::on_pushButton_clear_clicked()
 {
     ui->pushButton_plus->setChecked(false);
     ui->pushButton_minus->setChecked(false);
-    ui->pushButton_pomno->setChecked(false);
-    ui->pushButton_podil->setChecked(false);
+    ui->pushButton_divide->setChecked(false);
+    ui->pushButton_multiply->setChecked(false);
 
-    ui->Show_numbers->setText("0");
+    ui->label->setText("0");
 }
 
-void MainWindow::sign()
+void MainWindow::math_operations()
 {
     QPushButton *button = (QPushButton *)sender();
 
-    firstnum = QString (ui->Show_numbers->text()).toDouble();
-    ui->Show_numbers->setText("");
+    numfirts = ui->label->text().toDouble();
+    ui->label->setText("");
 
     button->setChecked(true);
 }
 
-void MainWindow::on_pushButton_rov_clicked()
-{
-    double labelNumber;
-    double num_second;
-    QString num;
 
-    num_second = ui->Show_numbers->text().toDouble();
+void MainWindow::on_pushButton_smooth_clicked()
+{
+    double labelnumber;
+    double numsecond;
+    QString newlabel;
+
+    numsecond = ui->label->text().toDouble();
 
     if(ui->pushButton_plus->isChecked()){
-        labelNumber = firstnum + num_second;
-        num = QString::number(labelNumber, 'g', 15);
-        ui->Show_numbers->setText(num);
-        ui->pushButton_plus->setChecked(false);
-    }else if (ui->pushButton_minus->isChecked()){
-        labelNumber = firstnum - num_second;
-        num = QString::number(labelNumber, 'g', 15);
-        ui->Show_numbers->setText(num);
-        ui->pushButton_minus->setChecked(false);
+        labelnumber = numfirts + numsecond;
+        newlabel = QString::number(labelnumber, 'g', 20);
 
-    }else if (ui->pushButton_podil->isChecked()){
-        if (num_second == 0){
-            ui->Show_numbers->setText("0");
-        } else {
-            labelNumber = firstnum / num_second;
-            num = QString::number(labelNumber, 'g', 15);
-            ui->Show_numbers->setText(num);
-            ui->pushButton_podil->setChecked(false);
+        ui->label->setText(newlabel);
+        ui->pushButton_plus->setChecked(false);
+    }else if(ui->pushButton_minus->isChecked()){
+        labelnumber = numfirts - numsecond;
+        newlabel = QString::number(labelnumber, 'g', 20);
+
+        ui->label->setText(newlabel);
+        ui->pushButton_plus->setChecked(false);
+    }else if(ui->pushButton_divide->isChecked()){
+        if(numsecond == 0) {
+            ui->label->setText("0");
+        }else {
+            labelnumber = numfirts / numsecond;
+            newlabel = QString::number(labelnumber, 'g', 20);
+
+            ui->label->setText(newlabel);
+            ui->pushButton_plus->setChecked(false);
         }
-    }else if(ui->pushButton_pomno->isChecked()){
-        labelNumber = firstnum * num_second;
-        num = QString::number(labelNumber, 'g', 15);
-        ui->Show_numbers->setText(num);
-        ui->pushButton_pomno->setChecked(false);
+    }else if(ui->pushButton_multiply->isChecked()){
+        labelnumber = numfirts * numsecond;
+        newlabel = QString::number(labelnumber, 'g', 20);
+
+        ui->label->setText(newlabel);
+        ui->pushButton_plus->setChecked(false);
     }
 }
 

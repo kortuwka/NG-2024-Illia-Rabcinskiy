@@ -5,7 +5,7 @@
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
-class Calculator;
+class MainWindow;
 }
 QT_END_NAMESPACE
 
@@ -18,13 +18,14 @@ public:
     ~MainWindow();
 
 private:
-    Ui::Calculator *ui;
+    Ui::MainWindow *ui;
+
 private slots:
-    void numbers();
+    void digits_numbers();
     void on_pushButton_dot_clicked();
-    void actions();
+    void operations();
     void on_pushButton_clear_clicked();
-    void on_pushButton_rov_clicked();
-    void sign();
+    void on_pushButton_smooth_clicked();
+    void math_operations();
 };
 #endif // MAINWINDOW_H
