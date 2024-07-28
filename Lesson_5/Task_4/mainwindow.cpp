@@ -17,11 +17,6 @@ MainWindow::~MainWindow()
 #include <QString>
 #include <QDebug>
 
-enum class Keyword {
-    Fuck,
-    Dick
-};
-
 void replaceKeyword(QString& line, const QString& keyword) {
     int val = line.indexOf(keyword);
     if (val != -1) {
@@ -31,9 +26,10 @@ void replaceKeyword(QString& line, const QString& keyword) {
 
 int MainWindow::on_pushButton_clicked()
 {
-    QFile file("C:/Users/User/Documents/Task_4/keywords");
+    QString file_str = QFileDialog::getOpenFileName(this, "Select a file");
+    QFile file(file_str);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open keywords.txt";
+        qDebug() << "Failed to open";
         return 1;
     }
 
