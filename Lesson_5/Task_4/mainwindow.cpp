@@ -27,22 +27,31 @@ void replaceKeyword(QString& line, const QString& keyword) {
 int MainWindow::on_pushButton_clicked()
 {
     QString file_str = QFileDialog::getOpenFileName(this, "Select a file");
+
+    if (file_str.isEmpty()) {
+        qDebug() << "No file selected:";
+    }
+
     QFile file(file_str);
+
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open";
-        return 1;
+        qDebug() << "Failed to open file:" << file.errorString();
     }
 
     QTextStream in(&file);
     QStringList keywords;
+
     while (!in.atEnd()) {
         QString keyword = in.readLine().trimmed();
-        keywords.append(keyword);
+        if (!keyword.isEmpty()) {
+            keywords.append(keyword);
+        }
     }
 
     file.close();
 
     QString line = ui->lineEdit->text();
+
     for (const QString& keyword : keywords) {
         replaceKeyword(line, keyword);
     }
