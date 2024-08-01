@@ -57,4 +57,6 @@ int MainWindow::on_pushButton_clicked()
     }
 
     ui->lineEdit->setText(line);
+
+    return 0;
 }
