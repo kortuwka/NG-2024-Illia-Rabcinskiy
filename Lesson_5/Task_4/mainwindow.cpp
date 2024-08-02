@@ -12,10 +12,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-#include <QFile>
-#include <QTextStream>
-#include <QString>
-#include <QDebug>
 
 void replaceKeyword(QString& line, const QString& keyword) {
     int val = line.indexOf(keyword);
