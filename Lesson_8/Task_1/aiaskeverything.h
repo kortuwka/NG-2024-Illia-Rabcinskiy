@@ -7,6 +7,8 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QDebug>
+#include <string>
+#include <windows.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -25,6 +27,14 @@ public:
 private slots:
     void askAi();
     void newAnswer(QNetworkReply *reply);
+
+    void on_easy_clicked();
+
+    void on_normal_clicked();
+
+    void on_difficult_clicked();
+
+    void on_Check_clicked();
 
 private:
     Ui::AIAskEverything *ui;
