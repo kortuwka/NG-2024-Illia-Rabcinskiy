@@ -15,45 +15,52 @@ AIAskEverything::AIAskEverything(QWidget *parent)
     connect (m_manager, &QNetworkAccessManager::finished, this, &AIAskEverything::newAnswer);
 }
 
-int manytrue = 0;
-
 AIAskEverything::~AIAskEverything()
 {
     delete ui;
 }
 
-QNetworkReply *reply;
-QByteArray Question;
-QString Check_for_characters;
-QString Balls_corrected;
-QString Numberoftasks_String;
-std::string Check_for_characters_corrected;
-int Balls = 0;
-int val;
-int Numberoftasks = 0;
+
 
 void AIAskEverything::askAi()
 {
-    QString text_from_question = ui->te_question->toPlainText();
-    std::string text_from_question_corrected = text_from_question.toLocal8Bit().constData();
+    if(start == 0){
+        start = 1;
+        QNetworkRequest request(QUrl("http://127.0.0.1:11434/api/generate"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-    QNetworkRequest request(QUrl("http://127.0.0.1:11434/api/generate"));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        QJsonObject json;
+        json["model"] = "llama3.1:8b";
+        json["prompt"] = "Write me a math problem for 1st grade without unnecessary text and not similar to your previous problem";
+        json["stream"] = false;
 
-    QString answerstr = ui->te_answer->toPlainText();
+        reply = m_manager->post(request, QJsonDocument(json).toJson());
+        ui->b_ask->setText("To answer");
+    }else{
+        QString text_from_question = ui->te_question->toPlainText();
+        std::string text_from_question_corrected = text_from_question.toLocal8Bit().constData();
 
-    Question = answerstr.toUtf8();
+        QNetworkRequest request(QUrl("http://127.0.0.1:11434/api/generate"));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-    QByteArray examination = "write if the answer is correct, if yes then answer true without unnecessary text, if no then answer false without unnecessary text, here is the question: " + Question + " here is the answer: ";
-    QString text = examination + ui->te_question->toPlainText();
-    ui->te_answer->setText("");
+        QString answerstr = ui->te_answer->toPlainText();
 
-    QJsonObject json;
-    json["model"] = "llama3.1:8b";
-    json["prompt"] = text;
-    json["stream"] = false;
+        Question = answerstr.toUtf8();
+        QByteArray answer = text_from_question.toUtf8();
 
-    reply = m_manager->post(request, QJsonDocument(json).toJson());
+        QByteArray examination = "write if the answer is correct, if yes then answer true without unnecessary text, if no then answer false without unnecessary text, here is the question: " + Question + " here is the answer: ";
+        QString text = examination + ui->te_question->toPlainText();
+        ui->te_answer->setText("");
+
+        QJsonObject json;
+        json["model"] = "llama3.1:8b";
+        json["prompt"] = text;
+        json["stream"] = false;
+
+        reply = m_manager->post(request, QJsonDocument(json).toJson());
+        ui->b_ask->setText("Generate");
+        start = 0;
+    }
 }
 
 void AIAskEverything::newAnswer (QNetworkReply *reply)
@@ -66,48 +73,6 @@ void AIAskEverything::newAnswer (QNetworkReply *reply)
     } else {
         qDebug() << "Error: " << reply->errorString();
     }
-}
-
-void AIAskEverything::on_easy_clicked()
-{
-    QNetworkRequest request(QUrl("http://127.0.0.1:11434/api/generate"));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    QJsonObject json;
-    json["model"] = "llama3.1:8b";
-    json["prompt"] = "Write me a math problem for grades 1 don't write a reply";
-    json["stream"] = false;
-
-    reply = m_manager->post(request, QJsonDocument(json).toJson());
-}
-
-
-void AIAskEverything::on_normal_clicked()
-{
-    QNetworkRequest request(QUrl("http://127.0.0.1:11434/api/generate"));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    QJsonObject json;
-    json["model"] = "llama3.1:8b";
-    json["prompt"] = "Write me a math problem for grades 9 don't write a reply";
-    json["stream"] = false;
-
-    reply = m_manager->post(request, QJsonDocument(json).toJson());
-}
-
-
-void AIAskEverything::on_difficult_clicked()
-{
-    QNetworkRequest request(QUrl("http://127.0.0.1:11434/api/generate"));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    QJsonObject json;
-    json["model"] = "llama3.1:8b";
-    json["prompt"] = "Write me a math problem for a student don't write a reply";
-    json["stream"] = false;
-
-    reply = m_manager->post(request, QJsonDocument(json).toJson());
-
 }
 
 

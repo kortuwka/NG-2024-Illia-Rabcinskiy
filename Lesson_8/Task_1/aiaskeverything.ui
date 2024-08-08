@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>381</width>
-    <height>345</height>
+    <height>375</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,29 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QPushButton" name="easy">
-        <property name="text">
-         <string>easy level</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="normal">
-        <property name="text">
-         <string>normal level</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="difficult">
-        <property name="text">
-         <string>difficult level</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <layout class="QHBoxLayout" name="horizontalLayout"/>
     </item>
     <item>
      <widget class="QTextEdit" name="te_question"/>
@@ -46,7 +24,7 @@
     <item>
      <widget class="QPushButton" name="b_ask">
       <property name="text">
-       <string>To answer</string>
+       <string>Generate</string>
       </property>
      </widget>
     </item>
