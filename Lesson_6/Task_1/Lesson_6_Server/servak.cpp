@@ -47,6 +47,7 @@ void Servak::leftClient()
     m_clients.removeOne(socket);
     showClientsAmount();
 }
+<<<<<<< HEAD
 
 
 void Servak::sendToAll(QByteArray message)
@@ -94,6 +95,32 @@ void Servak::sendToClientText(QByteArray message)
     }
     qDebug() << "ready";
 }
+=======
+std::string file;
+QByteArray file_corrected;
+
+void Servak::sendToAll(QByteArray message)
+{
+    qDebug() << message;
+    file = message;
+    qDebug() << file;
+    int val = file.find("1058439");
+    qDebug() << val;
+    file_corrected.append(file.replace(file.find("1058439"), 7, ""));
+    qDebug() << file_corrected;
+
+    if(val == 0){
+        for (QTcpSocket *client : m_clients)
+            client->write(file_corrected);
+        for (QTcpSocket *client : m_clients)
+            client->write("Server: File");
+    }else{
+        for (QTcpSocket *client : m_clients)
+            client->write(message);
+    }
+}
+
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
 void Servak::messageFromClient()
 {
     QTcpSocket *socket = (QTcpSocket *)sender();

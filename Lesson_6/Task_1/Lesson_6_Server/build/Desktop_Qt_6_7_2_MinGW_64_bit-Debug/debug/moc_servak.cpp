@@ -6,7 +6,11 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+<<<<<<< HEAD
 #include "../../../servak.h"
+=======
+#include "../../../../../../../../../../../../Projects/Lessons/Lesson_6/Task_1/Lesson_6_Server/servak.h"
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -44,7 +48,14 @@ constexpr auto qt_meta_stringdata_CLASSServakENDCLASS = QtMocHelpers::stringData
     "leftClient",
     "sendToAll",
     "message",
+<<<<<<< HEAD
     "messageFromClient"
+=======
+    "sendToAllFile",
+    "file_txt",
+    "messageFromClient",
+    "fileFromClient"
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -57,7 +68,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSServakENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
+<<<<<<< HEAD
        5,   14, // methods
+=======
+       7,   14, // methods
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -65,17 +80,32 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSServakENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
+<<<<<<< HEAD
        1,    2,   44,    2, 0x0a,    1 /* Public */,
        5,    0,   49,    2, 0x08,    4 /* Private */,
        6,    0,   50,    2, 0x08,    5 /* Private */,
        7,    1,   51,    2, 0x08,    6 /* Private */,
        9,    0,   54,    2, 0x08,    8 /* Private */,
+=======
+       1,    2,   56,    2, 0x0a,    1 /* Public */,
+       5,    0,   61,    2, 0x08,    4 /* Private */,
+       6,    0,   62,    2, 0x08,    5 /* Private */,
+       7,    1,   63,    2, 0x08,    6 /* Private */,
+       9,    1,   66,    2, 0x08,    8 /* Private */,
+      11,    0,   69,    2, 0x08,   10 /* Private */,
+      12,    0,   70,    2, 0x08,   11 /* Private */,
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::Int,    3,    4,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QByteArray,    8,
+<<<<<<< HEAD
+=======
+    QMetaType::Void, QMetaType::QByteArray,   10,
+    QMetaType::Void,
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
     QMetaType::Void,
 
        0        // eod
@@ -101,7 +131,16 @@ Q_CONSTINIT const QMetaObject Servak::staticMetaObject = { {
         // method 'sendToAll'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QByteArray, std::false_type>,
+<<<<<<< HEAD
         // method 'messageFromClient'
+=======
+        // method 'sendToAllFile'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QByteArray, std::false_type>,
+        // method 'messageFromClient'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'fileFromClient'
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -117,7 +156,13 @@ void Servak::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 1: _t->newClient(); break;
         case 2: _t->leftClient(); break;
         case 3: _t->sendToAll((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+<<<<<<< HEAD
         case 4: _t->messageFromClient(); break;
+=======
+        case 4: _t->sendToAllFile((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1]))); break;
+        case 5: _t->messageFromClient(); break;
+        case 6: _t->fileFromClient(); break;
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
         default: ;
         }
     }
@@ -142,6 +187,7 @@ int Servak::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
+<<<<<<< HEAD
         if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
         _id -= 5;
@@ -149,6 +195,15 @@ int Servak::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
         _id -= 5;
+=======
+        if (_id < 7)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 7;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 7)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 7;
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
     }
     return _id;
 }

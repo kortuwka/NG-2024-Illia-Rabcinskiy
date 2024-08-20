@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 14.0.1, 2024-08-20T11:54:09. -->
+=======
+<!-- Written by QtCreator 14.0.0, 2024-08-02T19:35:55. -->
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -243,10 +247,17 @@
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="PerfRecordArgsId">-e cpu-cycles --call-graph &quot;dwarf,4096&quot; -F 250</value>
+<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Lesson_6_Server2</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Projects/Lessons/Lesson_6/Task_1/Lesson_6_Server/Lesson_6_Server.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Projects/Lessons/Lesson_6/Task_1/Lesson_6_Server/Lesson_6_Server.pro</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
+=======
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName"></value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/User/OneDrive/Робочий стіл/Projects/Lessons/Lesson_6/Task_1/Lesson_6_Server/Lesson_6_Server.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/User/OneDrive/Робочий стіл/Projects/Lessons/Lesson_6/Task_1/Lesson_6_Server/Lesson_6_Server.pro</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>

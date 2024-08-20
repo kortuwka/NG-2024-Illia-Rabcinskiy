@@ -6,9 +6,14 @@
 #include <QTcpSocket>
 #include <QDebug>
 #include <QVector>
+<<<<<<< HEAD
 #include <QTextStream>
 #include <QFile>
 #include <string>
+=======
+#include <string>
+#include <QTextStream>
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
 
 class Servak : public QObject
 {

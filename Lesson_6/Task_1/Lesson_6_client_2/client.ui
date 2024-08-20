@@ -148,6 +148,7 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
+<<<<<<< HEAD
            <widget class="QPushButton" name="pushButton">
             <property name="text">
              <string>Open File</string>
@@ -155,6 +156,8 @@
            </widget>
           </item>
           <item>
+=======
+>>>>>>> d417f13a55ae7ea07011f16397966cd5c9b39ae7
            <widget class="QListWidget" name="lw_users">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
