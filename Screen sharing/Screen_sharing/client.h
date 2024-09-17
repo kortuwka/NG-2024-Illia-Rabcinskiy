@@ -38,11 +38,12 @@ private slots:
     void connectionEstablished();
     void sendMessage();
     void MessageReceived();
-
+    void toggleSendMessage();
 
 private:
     Ui::Client *ui;
     QTcpSocket *m_socket;
     QTimer *m_timer;
+    bool isSending;
 };
 #endif // CLIENT_H

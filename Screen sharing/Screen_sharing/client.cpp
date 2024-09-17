@@ -4,6 +4,7 @@
 Client::Client(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Client)
+    , isSending(false)
 {
     ui->setupUi(this);
     m_socket = new QTcpSocket();
@@ -12,7 +13,7 @@ Client::Client(QWidget *parent)
     ui->sb_port->setMaximum(16000);
 
     connect(ui->b_login, &QPushButton::clicked, this, &Client::login);
-    connect(ui->b_send, &QPushButton::clicked, this, &Client::sendMessage);
+    connect(ui->b_send, &QPushButton::clicked, this, &Client::toggleSendMessage);
     connect(m_socket, &QTcpSocket::connected, this, &Client::connectionEstablished);
     connect(m_socket, &QTcpSocket::readyRead, this, &Client::MessageReceived);
     connect(m_timer, &QTimer::timeout, this, &Client::sendMessage);
@@ -36,9 +37,22 @@ void Client::connectionEstablished()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
+void Client::toggleSendMessage()
+{
+    if (isSending) {
+        m_timer->stop();
+        ui->b_send->setText("Show");
+    } else {
+        m_timer->start(200);
+        ui->b_send->setText("Stop");
+    }
+    isSending = !isSending;
+}
+
 void Client::sendMessage()
 {
-    m_timer->start(200);
+    if (!isSending) return;
+
     ui->label->clear();
     QScreen *screen = QApplication::primaryScreen();
     if (!screen) {
@@ -58,7 +72,7 @@ void Client::sendMessage()
         return;
     }
 
-    screenshot.save(&file, "PNG");
+    //screenshot.save(&file, "PNG");
     qDebug() << "Скриншот сохранен в файл" << fileName;
     QImage image = screenshot.toImage();
 
